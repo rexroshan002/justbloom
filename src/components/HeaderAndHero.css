@@ -584,14 +584,16 @@
 .card-stat { font-size: 26px; font-weight: 800; color: #111827; letter-spacing: -0.5px; }
 .card-label { font-size: 12px; font-weight: 500; color: #6b7280; }
 
-.card-meta { top: 20px; right: 20px; }
+.card-meta { top: 20px; right: 10px; }
 @media (min-width: 1024px) { .card-meta { right: 50px; } }
 .icon-infinity { color: #3b82f6; font-weight: 800; }
 
-.card-google { top: 120px; right: -20px; }
+.card-google { top: 120px; right: 5px; }
+@media (min-width: 1024px) { .card-google { right: -20px; } }
 .icon-g { color: #f59e0b; font-weight: 800; font-size: 16px; }
 
-.card-growth { bottom: 30px; right: 10px; }
+.card-growth { bottom: 30px; right: 5px; }
+@media (min-width: 1024px) { .card-growth { right: 10px; } }
 .icon-trend { color: #10b981; }
 
 
