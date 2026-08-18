@@ -1,0 +1,203 @@
+/* =========================================================
+   SECTION 2: OUR SERVICES (Premium Bento Grid Upgrade)
+   ========================================================= */
+
+.services-section {
+  padding: 120px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ambient Background Glow for depth */
+.ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Section Header */
+.services-header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.03em;
+  margin-top: 8px;
+}
+@media (min-width: 768px) { .services-title { font-size: 48px; } }
+
+/* Services Bento Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 640px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* --- Premium Bento Glass Cards --- */
+.bento-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 24px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left; /* Shifted from center to left for a mature editorial look */
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.bento-glass:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 48px rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Glowing Glass Orbs for Icons */
+.service-icon-container {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6), 0 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+.service-svg {
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Interactive Magnetic Icon Pop on Card Hover */
+.bento-glass:hover .service-icon-container {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.bento-glass:hover .service-svg {
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* Upgraded Color Palettes for Icons (Rich Gradients instead of Flat Colors) */
+.icon-blue { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); color: #3b82f6; }
+.bento-glass:hover .icon-blue { box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2); }
+
+.icon-purple { background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%); color: #7c3aed; }
+.bento-glass:hover .icon-purple { box-shadow: 0 12px 24px rgba(124, 58, 237, 0.2); }
+
+.icon-pink { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); color: #db2777; }
+.bento-glass:hover .icon-pink { box-shadow: 0 12px 24px rgba(219, 39, 119, 0.2); }
+
+.icon-cyan { background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); color: #06b6d4; }
+.bento-glass:hover .icon-cyan { box-shadow: 0 12px 24px rgba(6, 182, 212, 0.2); }
+
+.icon-orange { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); color: #ea580c; }
+.bento-glass:hover .icon-orange { box-shadow: 0 12px 24px rgba(234, 88, 12, 0.2); }
+
+.icon-indigo { background: linear-gradient(135deg, #eef2ff 0%, #c7d2fe 100%); color: #4f46e5; }
+.bento-glass:hover .icon-indigo { box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2); }
+
+/* Typography Formatting */
+.service-content {
+  flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.bento-glass h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.bento-glass p {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+/* Premium Ghost Button (The 'Learn More' Link) */
+.premium-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4b5563;
+  text-decoration: none;
+  background: #f3f4f6;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid transparent;
+}
+
+.kinetic-arrow {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Springy bounce */
+}
+
+/* Card Hover Triggers Button Evolution */
+.bento-glass:hover .premium-ghost-btn {
+  background: #ffffff;
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.bento-glass:hover .kinetic-arrow {
+  transform: translateX(4px);
+}
+
+.premium-ghost-btn:hover {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3) !important;
+}
+
+.premium-ghost-btn:hover .kinetic-arrow {
+  transform: translateX(6px);
+}
+
+.premium-ghost-btn:active {
+  transform: translateY(1px) scale(0.96);
+}

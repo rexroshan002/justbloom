@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Clean Reset for JustBloom Project */
+:root {
+  --bloom-blue: #3b82f6;
+  --bloom-text: #6b7280;
+  --bloom-dark: #111827;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: var(--bloom-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Simple container for the page */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reset default heading margin */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* Basic link resets */
+a {
+  text-decoration: none;
+}

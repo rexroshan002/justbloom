@@ -1,0 +1,287 @@
+/* =========================================================
+   SECTION 5: RECENT PROJECTS (Premium Editorial Upgrade)
+   ========================================================= */
+
+.projects-section {
+  padding: 120px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Section Header */
+.projects-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+@media (min-width: 768px) {
+  .projects-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.projects-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.projects-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.03em;
+  margin: 8px 0;
+}
+@media (min-width: 768px) { .projects-title { font-size: 48px; } }
+
+.projects-desc {
+  font-size: 16px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Header Controls (Right Side) */
+.projects-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Glass Navigation Arrows */
+.projects-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.glass-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(59, 130, 246, 0.05);
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(8px);
+}
+
+.glass-nav-btn:hover:not(.disabled) {
+  background: #3b82f6;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.glass-nav-btn:active:not(.disabled) {
+  transform: translateY(1px) scale(0.95);
+}
+
+.glass-nav-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+  color: #9ca3af;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- Premium Editorial Cards --- */
+.editorial-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #111827;
+  aspect-ratio: 4 / 5; /* Taller, fashion/editorial aspect ratio */
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.editorial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(17, 24, 39, 0.2);
+}
+
+/* Image & Overlay */
+.project-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Cinematic Zoom on hover */
+.editorial-card:hover .project-image {
+  transform: scale(1.08);
+}
+
+/* Deep cinematic gradient overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.4) 40%, transparent 100%);
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.editorial-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Ethereal Badge */
+.ethereal-badge {
+  position: absolute;
+  top: 24px; /* Moved to top so it doesn't fight with bottom text */
+  left: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Staggered Info Reveal */
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 24px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.info-content {
+  transform: translateY(16px); /* Starts slightly pushed down */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.editorial-card:hover .info-content {
+  transform: translateY(0); /* Slides up to resting position on hover */
+}
+
+.project-info h4 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.project-info p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+/* Internal Card Link */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #93c5fd; /* Light Bloom Blue */
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.editorial-card:hover .project-link {
+  color: #ffffff;
+}
+
+.project-link .kinetic-arrow {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-link:hover .kinetic-arrow {
+  transform: translateX(6px);
+}
+
+/* =========================================================
+   DYNAMIC EXPANSION ANIMATIONS
+   ========================================================= */
+
+/* The Staggered Cinematic Fade-Up */
+.animate-stagger {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: projectFadeUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes projectFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Active Collapse Button Styling */
+.btn-view-all.active-collapse {
+  background: #fef2f2; /* Soft red tint */
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.btn-view-all.active-collapse:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3) !important;
+}
