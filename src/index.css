@@ -6,8 +6,10 @@
   --bloom-text: #6b7280;
   --bloom-dark: #111827;
 }
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -16,6 +18,7 @@ body {
   background-color: #ffffff;
   color: var(--bloom-dark);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* Simple container for the page */
@@ -26,7 +29,13 @@ body {
 }
 
 /* Reset default heading margin */
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
 

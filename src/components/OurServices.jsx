@@ -19,7 +19,7 @@ const OurServices = () => {
       </div>
 
       <div className="services-grid">
-        {servicesData.map((service, index) => {
+        {servicesData.slice(0, 3).map((service, index) => {
           const IconComponent = service.icon;
           return (
             <div key={index} className="service-card bento-glass">
