@@ -2,14 +2,12 @@
    SECTION 3: ABOUT & FOUNDERS (Premium UI Upgrade)
    ========================================================= */
 .about-section {
-  padding: 100px 24px;
+  padding: 80px 24px;
   max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .about-grid {
@@ -263,6 +261,13 @@
 @media (min-width: 640px) {
   .founders-cards {
     grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .founders-cards {
+    gap: 20px;
   }
 }
 
@@ -272,7 +277,7 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 24px;
-  padding: 12px;
+  padding: 16px 12px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -288,12 +293,12 @@
 
 .founder-image-wrapper {
   width: 100%;
+  max-width: 220px;
   aspect-ratio: 1 / 1;
-  /* Creates perfect squares */
   background-color: #f3f4f6;
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin: 0 auto 16px;
   position: relative;
 }
 
@@ -306,7 +311,6 @@
 
 .glass-panel:hover .founder-image-wrapper img {
   transform: scale(1.08);
-  /* Cinematic internal zoom */
 }
 
 /* Subtle inner shadow on images for depth */
@@ -326,7 +330,7 @@
 }
 
 .founder-name {
-  font-size: 20px;
+  font-size: clamp(16px, 1.6vw, 20px);
   font-weight: 800;
   color: #1f2937;
   letter-spacing: -0.02em;
@@ -334,12 +338,12 @@
 }
 
 .founder-role {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   color: #6b7280;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
 }
 
 /* Glowing Pill Badge */
@@ -351,7 +355,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   transition: all 0.4s ease;
@@ -359,6 +363,5 @@
 
 .glass-panel:hover .pulse-badge {
   box-shadow: 0 6px 16px rgba(139, 92, 246, 0.5);
-  /* Shifts glow color on hover */
   transform: translateY(-2px);
 }

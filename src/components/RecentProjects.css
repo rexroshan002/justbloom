@@ -3,14 +3,12 @@
    ========================================================= */
 
 .projects-section {
-  padding: 120px 24px;
+  padding: 80px 24px;
   max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Header */
@@ -19,7 +17,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 @media (min-width: 768px) {
@@ -37,13 +35,12 @@
 }
 
 .projects-title {
-  font-size: 38px;
+  font-size: clamp(30px, 5vw, 48px);
   font-weight: 800;
   color: #111827;
   letter-spacing: -0.03em;
   margin: 8px 0;
 }
-@media (min-width: 768px) { .projects-title { font-size: 48px; } }
 
 .projects-desc {
   font-size: 16px;
@@ -55,8 +52,18 @@
 .projects-header-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .projects-header-right {
+    width: auto;
+    justify-content: flex-end;
+    gap: 24px;
+  }
 }
 
 /* Glass Navigation Arrows */
@@ -200,12 +207,24 @@
 }
 
 .info-content {
-  transform: translateY(16px); /* Starts slightly pushed down */
+  transform: translateY(16px);
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .editorial-card:hover .info-content {
-  transform: translateY(0); /* Slides up to resting position on hover */
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .info-content {
+    transform: translateY(0);
+  }
+  .project-info {
+    padding: 24px 18px;
+  }
+  .project-info h4 {
+    font-size: 20px;
+  }
 }
 
 .project-info h4 {
