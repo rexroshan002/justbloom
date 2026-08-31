@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import HeaderAndHero from "./components/HeaderAndHero";
 import OurServices from "./components/OurServices";
 import AboutAndFounders from "./components/AboutAndFounders";
@@ -21,16 +21,14 @@ const Home = () => (
 
 function App() {
   return (
-    <Router>
-      {" "}
-      {/* <--- Removed basename for Netlify */}
+    <HashRouter>
       <Routes>
         {/* The main URL shows the homepage */}
         <Route path="/" element={<Home />} />
         {/* The /contact URL shows ONLY the form */}
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
