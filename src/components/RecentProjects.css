@@ -3,7 +3,11 @@
    ========================================================= */
 
 .projects-section {
-  padding: 80px 24px;
+  padding: 100px 24px 190px;
+  min-height: 67vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
@@ -125,6 +129,7 @@
 }
 
 /* --- Premium Editorial Cards --- */
+.project-card,
 .editorial-card {
   position: relative;
   border-radius: 24px;
@@ -136,6 +141,7 @@
   transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.project-card:hover,
 .editorial-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 24px 48px rgba(17, 24, 39, 0.2);
@@ -158,6 +164,7 @@
 }
 
 /* Cinematic Zoom on hover */
+.project-card:hover .project-image,
 .editorial-card:hover .project-image {
   transform: scale(1.08);
 }
@@ -166,16 +173,23 @@
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.4) 40%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(17, 24, 39, 0.95) 0%,
+    rgba(17, 24, 39, 0.4) 40%,
+    transparent 100%
+  );
   opacity: 0.8;
   transition: opacity 0.6s ease;
 }
 
+.project-card:hover .project-overlay,
 .editorial-card:hover .project-overlay {
   opacity: 1;
 }
 
 /* Ethereal Badge */
+.project-badge,
 .ethereal-badge {
   position: absolute;
   top: 24px; /* Moved to top so it doesn't fight with bottom text */
@@ -211,6 +225,7 @@
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.project-card:hover .info-content,
 .editorial-card:hover .info-content {
   transform: translateY(0);
 }
@@ -257,6 +272,7 @@
   transition: color 0.3s ease;
 }
 
+.project-card:hover .project-link,
 .editorial-card:hover .project-link {
   color: #ffffff;
 }

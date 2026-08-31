@@ -18,7 +18,11 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.05) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   z-index: -1;
@@ -60,6 +64,7 @@
 }
 
 /* --- Premium Bento Glass Cards --- */
+.service-card,
 .bento-glass {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
@@ -77,6 +82,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
+.service-card:hover,
 .bento-glass:hover {
   transform: translateY(-8px) scale(1.01);
   box-shadow: 0 24px 48px rgba(59, 130, 246, 0.08);
@@ -94,7 +100,9 @@
   justify-content: center;
   border-radius: 18px;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6), 0 8px 16px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+    0 8px 16px rgba(0, 0, 0, 0.04);
 }
 
 .service-svg {
@@ -102,32 +110,72 @@
 }
 
 /* Interactive Magnetic Icon Pop on Card Hover */
+.service-card:hover .service-icon-container,
 .bento-glass:hover .service-icon-container {
   transform: scale(1.08) translateY(-4px);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 12px 24px rgba(0, 0, 0, 0.08);
 }
+.service-card:hover .service-svg,
 .bento-glass:hover .service-svg {
   transform: rotate(8deg) scale(1.1);
 }
 
 /* Upgraded Color Palettes for Icons (Rich Gradients instead of Flat Colors) */
-.icon-blue { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); color: #3b82f6; }
-.bento-glass:hover .icon-blue { box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2); }
+.icon-blue {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: #3b82f6;
+}
+.service-card:hover .icon-blue,
+.bento-glass:hover .icon-blue {
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+}
 
-.icon-purple { background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%); color: #7c3aed; }
-.bento-glass:hover .icon-purple { box-shadow: 0 12px 24px rgba(124, 58, 237, 0.2); }
+.icon-purple {
+  background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%);
+  color: #7c3aed;
+}
+.service-card:hover .icon-purple,
+.bento-glass:hover .icon-purple {
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.2);
+}
 
-.icon-pink { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); color: #db2777; }
-.bento-glass:hover .icon-pink { box-shadow: 0 12px 24px rgba(219, 39, 119, 0.2); }
+.icon-pink {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: #db2777;
+}
+.service-card:hover .icon-pink,
+.bento-glass:hover .icon-pink {
+  box-shadow: 0 12px 24px rgba(219, 39, 119, 0.2);
+}
 
-.icon-cyan { background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); color: #06b6d4; }
-.bento-glass:hover .icon-cyan { box-shadow: 0 12px 24px rgba(6, 182, 212, 0.2); }
+.icon-cyan {
+  background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+  color: #06b6d4;
+}
+.service-card:hover .icon-cyan,
+.bento-glass:hover .icon-cyan {
+  box-shadow: 0 12px 24px rgba(6, 182, 212, 0.2);
+}
 
-.icon-orange { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); color: #ea580c; }
-.bento-glass:hover .icon-orange { box-shadow: 0 12px 24px rgba(234, 88, 12, 0.2); }
+.icon-orange {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  color: #ea580c;
+}
+.service-card:hover .icon-orange,
+.bento-glass:hover .icon-orange {
+  box-shadow: 0 12px 24px rgba(234, 88, 12, 0.2);
+}
 
-.icon-indigo { background: linear-gradient(135deg, #eef2ff 0%, #c7d2fe 100%); color: #4f46e5; }
-.bento-glass:hover .icon-indigo { box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2); }
+.icon-indigo {
+  background: linear-gradient(135deg, #eef2ff 0%, #c7d2fe 100%);
+  color: #4f46e5;
+}
+.service-card:hover .icon-indigo,
+.bento-glass:hover .icon-indigo {
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2);
+}
 
 /* Typography Formatting */
 .service-content {
@@ -170,6 +218,7 @@
 }
 
 /* Card Hover Triggers Button Evolution */
+.service-card:hover .premium-ghost-btn,
 .bento-glass:hover .premium-ghost-btn {
   background: #ffffff;
   color: #3b82f6;
@@ -177,6 +226,7 @@
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
 }
 
+.service-card:hover .kinetic-arrow,
 .bento-glass:hover .kinetic-arrow {
   transform: translateX(4px);
 }

@@ -9,6 +9,8 @@
   z-index: 10;
 }
 
+
+
 /* The Dark Glass Pill */
 .dark-glass-pill {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -64,6 +66,25 @@
   position: relative;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: default;
+}
+
+.stat-number {
+  /* Number styling */
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.stat-icon {
+  /* Icon styling within stat icon box */
+  display: block;
 }
 
 .stat-item:hover {

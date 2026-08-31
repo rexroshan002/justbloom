@@ -1,6 +1,5 @@
-import React from 'react';
-import { statsData } from '../data/constants';
-import './StatsBanner.css';
+import { statsData } from "../data/constants";
+import "./StatsBanner.css";
 
 const StatsBanner = () => {
   return (
@@ -13,7 +12,9 @@ const StatsBanner = () => {
               <div className="stat-icon-box">
                 <IconComponent size={24} className="stat-icon" />
               </div>
-              <div className="stat-number text-gradient-light">{stat.number}</div>
+              <div className="stat-number text-gradient-light">
+                {stat.number}
+              </div>
               <div className="stat-label">{stat.label}</div>
             </div>
           );

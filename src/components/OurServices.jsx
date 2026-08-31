@@ -1,7 +1,6 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { servicesData } from '../data/constants';
-import './OurServices.css';
+import { ArrowRight } from "lucide-react";
+import { servicesData } from "../data/constants";
+import "./OurServices.css";
 
 const OurServices = () => {
   return (
@@ -30,8 +29,13 @@ const OurServices = () => {
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
               </div>
-              <a href="#" onClick={(e) => e.preventDefault()} className="service-link premium-ghost-btn">
-                <span>Learn More</span> <ArrowRight size={16} className="kinetic-arrow" />
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                className="service-link premium-ghost-btn"
+              >
+                <span>Learn More</span>{" "}
+                <ArrowRight size={16} className="kinetic-arrow" />
               </a>
             </div>
           );
