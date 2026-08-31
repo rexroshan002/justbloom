@@ -17,15 +17,16 @@ const Home = () => (
     <RecentProjects />
     <Footer />
   </>
-);
+); // <--- THIS WAS MISSING IN YOUR FILE
 
 function App() {
   return (
     <Router>
+      {" "}
+      {/* <--- Removed basename for Netlify */}
       <Routes>
         {/* The main URL shows the homepage */}
         <Route path="/" element={<Home />} />
-
         {/* The /contact URL shows ONLY the form */}
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
