@@ -115,7 +115,7 @@ const AboutAndFounders = () => {
               </div>
               <div className="founder-info">
                 <div className="founder-name">William</div>
-                <div className="founder-role">Co-Founder</div>
+                <div className="founder-role">Managing Director</div>
                 <div className="founder-badge pulse-badge">Strategist</div>
               </div>
             </div>

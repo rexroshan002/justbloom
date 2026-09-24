@@ -215,3 +215,9 @@
   justify-content: center;
   gap: 8px;
 }
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 32px 20px;
+  }
+}

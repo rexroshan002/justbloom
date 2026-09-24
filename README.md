@@ -28,6 +28,9 @@
 
 - **Error Boundary Guard (`ErrorBoundary`):**
   - React error boundary component providing reliable runtime fallback UI.
+- **Responsive Layout:**
+  - Mobile-first layouts for navigation, social proof, forms, statistics, and content sections.
+  - Touch-friendly mobile navigation links and stable header spacing while scrolling.
 
 ---
 
@@ -105,6 +108,21 @@ In the project directory, you can run:
 - `npm run build`: Builds the app for production to the `dist` folder.
 - `npm run preview`: Locally previews the production build.
 - `npm run lint`: Runs ESLint to check for code quality and syntax issues.
+
+## ✅ Validation
+
+Before publishing changes, run the production build and lint checks:
+
+```bash
+npm run build
+npm run lint
+```
+
+The project is configured for deployment to GitHub Pages with:
+
+```bash
+npm run deploy
+```
 
 ---
 

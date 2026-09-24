@@ -52,8 +52,7 @@
 }
 
 .header.scrolled .navbar {
-  padding: 12px 24px;
-  /* Shrinks slightly on scroll */
+  padding: 16px 24px;
 }
 
 /* Logo */
@@ -231,6 +230,10 @@
 .nav-links.mobile-open {
   display: flex;
   /* Toggle via React state */
+}
+
+.nav-links.mobile-open li a {
+  margin: 0;
 }
 
 /* Nav Links - Desktop Configuration */
@@ -536,6 +539,13 @@
   align-items: center;
   gap: 16px;
   margin-top: 16px;
+}
+
+@media (max-width: 639px) {
+  .social-proof {
+    justify-content: center;
+    gap: 12px;
+  }
 }
 
 /* Hooking into the AvatarGroup component */
