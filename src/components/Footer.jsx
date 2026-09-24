@@ -169,7 +169,7 @@ const Footer = () => {
           <h4>Contact Us</h4>
           <div className="contact-item">
             <Mail size={16} className="contact-icon" />
-            agency.justbloom@gmail.com
+            justbloom.team@gmail.com
           </div>
           <div className="contact-item">
             <Phone size={16} className="contact-icon" /> +91 96632 32354
