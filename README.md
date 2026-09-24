@@ -118,10 +118,13 @@ npm run build
 npm run lint
 ```
 
-The project is configured for deployment to GitHub Pages with:
+The project is configured for deployment to GitHub Pages through the
+`Deploy to GitHub Pages` workflow. In the repository settings, set
+**Pages → Build and deployment → Source** to **GitHub Actions**. Each push to
+`main` then builds and publishes the site automatically.
 
 ```bash
-npm run deploy
+npm run build
 ```
 
 ---
