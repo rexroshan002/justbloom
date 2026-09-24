@@ -133,6 +133,11 @@ const Footer = () => {
           <h4>Services</h4>
           <ul className="kinetic-links">
             <li>
+              <Link to="/services/website-development">
+                Website Development
+              </Link>
+            </li>
+            <li>
               <Link to="services" smooth={true} offset={-100} duration={500}>
                 Shooting & Production
               </Link>

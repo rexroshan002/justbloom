@@ -100,22 +100,22 @@ const AboutAndFounders = () => {
           <div className="founders-cards">
             <div className="founder-card glass-panel">
               <div className="founder-image-wrapper">
-                <img src={josephImg} alt="Joseph - Co-Founder of JustBloom" />
+                <img src={josephImg} alt="Joseph - Co-Founder and CEO of JustBloom" loading="lazy" decoding="async" />
               </div>
               <div className="founder-info">
                 <div className="founder-name">Joseph</div>
-                <div className="founder-role"> CEO </div>
+                <div className="founder-role">Co-Founder &amp; CEO</div>
                 <div className="founder-badge pulse-badge">Visionary</div>
               </div>
             </div>
 
             <div className="founder-card glass-panel">
               <div className="founder-image-wrapper">
-                <img src={williamImg} alt="William - Co-Founder of JustBloom" />
+                <img src={williamImg} alt="William - Co-Founder of JustBloom" loading="lazy" decoding="async" />
               </div>
               <div className="founder-info">
                 <div className="founder-name">William</div>
-                <div className="founder-role">Managing Director</div>
+                <div className="founder-role">Co-Founder &amp; MD</div>
                 <div className="founder-badge pulse-badge">Strategist</div>
               </div>
             </div>
@@ -123,7 +123,7 @@ const AboutAndFounders = () => {
             {/* NEW: Ahshve Roshan's Profile */}
             <div className="founder-card glass-panel">
               <div className="founder-image-wrapper">
-                <img src={roshanImg} alt="Ahshve Roshan - CTO of JustBloom" />
+                <img src={roshanImg} alt="Ahshve Roshan - CTO of JustBloom" loading="lazy" decoding="async" />
               </div>
               <div className="founder-info">
                 <div className="founder-name">Roshan</div>

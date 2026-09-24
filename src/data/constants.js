@@ -1,4 +1,5 @@
 import {
+  Code2,
   Video,
   Edit,
   Megaphone,
@@ -12,6 +13,13 @@ import {
 } from "lucide-react";
 
 export const servicesData = [
+  {
+    title: "Website Development",
+    desc: "High-performance websites built to turn your brand presence into measurable growth.",
+    icon: Code2,
+    colorClass: "icon-blue",
+    isMainService: true,
+  },
   {
     title: "Shooting & Production",
     desc: "High-quality shoots that tell your brand story beautifully.",

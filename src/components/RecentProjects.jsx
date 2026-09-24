@@ -101,6 +101,8 @@ const RecentProjects = () => {
                 src={project.image}
                 alt={project.title}
                 className="project-image"
+                loading={index < 3 ? "eager" : "lazy"}
+                decoding="async"
               />
               <div className="project-overlay"></div>
             </div>

@@ -6,10 +6,13 @@ import StatsBanner from "./components/StatsBanner";
 import RecentProjects from "./components/RecentProjects";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import ServicePage, { ServicesIndex } from "./components/ServicePage";
+import SiteMeta from "./components/SiteMeta";
 
 // The homepage sections bundled together
 const Home = () => (
   <>
+    <SiteMeta />
     <HeaderAndHero />
     <AboutAndFounders />
     <OurServices />
@@ -25,6 +28,8 @@ function App() {
       <Routes>
         {/* The main URL shows the homepage */}
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesIndex />} />
+        <Route path="/services/:slug" element={<ServicePage />} />
         {/* The /contact URL shows ONLY the form */}
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
