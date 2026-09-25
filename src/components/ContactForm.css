@@ -119,11 +119,35 @@
   text-shadow: 0 0 16px rgba(0, 212, 255, 0.4);
 }
 
+.form-kicker {
+  color: #67e8f9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.form-intro {
+  color: rgba(255, 255, 255, .62);
+  line-height: 1.6;
+  margin: -16px 0 30px;
+  font-size: 14px;
+}
+
 /* Upgraded Input Fields */
 .input-group {
   margin-bottom: 20px;
   position: relative;
   text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin: 0 0 8px 2px;
+  color: rgba(255,255,255,.68);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .input-group input,
@@ -185,6 +209,24 @@
 .submit-btn:active {
   transform: translateY(1px) scale(0.98);
 }
+
+.submit-btn:disabled {
+  cursor: wait;
+  opacity: .65;
+  transform: none;
+}
+
+.form-error {
+  margin: -4px 0 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(248, 113, 113, .35);
+  border-radius: 10px;
+  color: #fecaca;
+  background: rgba(127, 29, 29, .24);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+}
 .phone-group {
   display: flex;
   gap: 12px;
@@ -245,7 +287,25 @@
 }
 
 @media (max-width: 480px) {
+  .contact-section {
+    padding: 88px 16px 28px;
+  }
+
+  .back-btn {
+    top: 20px;
+    left: 16px;
+  }
+
   .form-container {
     padding: 32px 20px;
+  }
+
+  .phone-group {
+    gap: 8px;
+  }
+
+  .country-select {
+    width: 104px;
+    padding-inline: 8px;
   }
 }

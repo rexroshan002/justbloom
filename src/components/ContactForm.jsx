@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle } from "lucide-react";
+import SiteMeta from "./SiteMeta";
 import "./ContactForm.css";
 
 const ContactForm = () => {
@@ -8,6 +9,7 @@ const ContactForm = () => {
   // New state variables to handle the submission process
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     // Attach the Google callback function to the global window object
@@ -27,6 +29,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Stops the page from redirecting
     setIsLoading(true);
+    setSubmitError("");
 
     const formData = new FormData(e.target);
 
@@ -46,11 +49,11 @@ const ContactForm = () => {
       if (response.ok) {
         setIsSubmitted(true); // Triggers the success screen
       } else {
-        alert("Transmission failed. Please verify your data and try again.");
+        setSubmitError("We couldn't send your message. Please review your details and try again.");
       }
     } catch (error) {
       console.error(error);
-      alert("Network error. Please try again later.");
+      setSubmitError("A network error interrupted the request. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -60,6 +63,7 @@ const ContactForm = () => {
   if (isSubmitted) {
     return (
       <section id="contact" className="contact-section">
+        <SiteMeta title="Message sent" description="Your JustBloom contact request was sent successfully." />
         <div className="contact-glow"></div>
         <div className="form-container" style={{ textAlign: "center" }}>
           <CheckCircle
@@ -88,6 +92,7 @@ const ContactForm = () => {
   // --- NORMAL FORM UI ---
   return (
     <section id="contact" className="contact-section">
+      <SiteMeta title="Contact" description="Start a conversation with JustBloom about your next growth milestone." />
       <div className="contact-glow"></div>
 
       <button className="back-btn" onClick={() => navigate("/")}>
@@ -95,7 +100,9 @@ const ContactForm = () => {
       </button>
 
       <div className="form-container">
-        <h2>Initiate Contact</h2>
+      <div className="form-kicker">Start a conversation</div>
+      <h2>Build what’s next.</h2>
+      <p className="form-intro">Tell us where you want to go. We’ll come back with a clear next step.</p>
 
         {/* We removed action/method and added onSubmit */}
         <form onSubmit={handleSubmit}>
@@ -107,13 +114,18 @@ const ContactForm = () => {
           {/* _next is no longer needed because we handle the UI entirely in React */}
 
           <div className="input-group">
-            <input type="text" name="name" placeholder="Name" required />
+            <label htmlFor="contact-name">Your name</label>
+            <input
+              id="contact-name" type="text" name="name" placeholder="Name" required />
           </div>
           <div className="input-group">
+            <label htmlFor="contact-email">Work email</label>
             {/* type="email" ensures the browser warns them about missing .coms before they can even click submit */}
-            <input type="email" name="email" placeholder="Email" required />
+            <input
+              id="contact-email" type="email" name="email" placeholder="Email" required />
           </div>
           <div className="input-group phone-group">
+            <label htmlFor="contact-phone">Phone number</label>
             <select
               name="countryCode"
               className="country-select"
@@ -126,6 +138,7 @@ const ContactForm = () => {
               <option value="+971">+971 (UAE)</option>
             </select>
             <input
+              id="contact-phone"
               type="tel"
               name="phone"
               placeholder="Mobile Number"
@@ -133,13 +146,16 @@ const ContactForm = () => {
             />
           </div>
           <div className="input-group">
+            <label htmlFor="contact-message">How can we help?</label>
             <textarea
+              id="contact-message"
               name="message"
               rows="4"
               placeholder="Submit Message..."
               required
             ></textarea>
           </div>
+          {submitError && <p className="form-error" role="alert">{submitError}</p>}
           <button type="submit" className="submit-btn" disabled={isLoading}>
             {isLoading ? "Transmitting..." : "Submit Form"}
           </button>

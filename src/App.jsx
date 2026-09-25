@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import HeaderAndHero from "./components/HeaderAndHero";
 import OurServices from "./components/OurServices";
 import AboutAndFounders from "./components/AboutAndFounders";
@@ -32,6 +32,7 @@ function App() {
         <Route path="/services/:slug" element={<ServicePage />} />
         {/* The /contact URL shows ONLY the form */}
         <Route path="/contact" element={<ContactForm />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>
   );
