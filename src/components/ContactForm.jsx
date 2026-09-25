@@ -33,7 +33,7 @@ const ContactForm = () => {
     try {
       // Notice the /ajax/ added to the URL! This tells FormSubmit to stay quiet.
       const response = await fetch(
-        "https://formsubmit.co/ajax/roshanrdrheal@gmail.com",
+        "https://formsubmit.co/ajax/justbloom.team@gmail.com",
         {
           method: "POST",
           body: formData,
