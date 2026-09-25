@@ -113,6 +113,25 @@ const ContactForm = () => {
             {/* type="email" ensures the browser warns them about missing .coms before they can even click submit */}
             <input type="email" name="email" placeholder="Email" required />
           </div>
+          <div className="input-group phone-group">
+            <select
+              name="countryCode"
+              className="country-select"
+              defaultValue="+91"
+            >
+              <option value="+91">+91 (IN)</option>
+              <option value="+1">+1 (US)</option>
+              <option value="+44">+44 (UK)</option>
+              <option value="+61">+61 (AU)</option>
+              <option value="+971">+971 (UAE)</option>
+            </select>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Mobile Number"
+              required
+            />
+          </div>
           <div className="input-group">
             <textarea
               name="message"
