@@ -34,6 +34,13 @@ const RecentProjects = () => {
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = selectedProject ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
+
   const handlePrev = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - itemsPerPage);
   };
@@ -57,7 +64,10 @@ const RecentProjects = () => {
   const displayedProjects = showAll ? filteredProjects : visibleProjects;
 
   return (
-    <section id="portfolio" className="projects-section">
+    <section
+      id="portfolio"
+      className={`projects-section ${selectedProject ? "has-modal" : ""}`}
+    >
       <div className="projects-header">
         <div className="projects-header-left">
           <div className="premium-badge">
