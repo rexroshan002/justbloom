@@ -19,7 +19,7 @@ export const siteConfig = {
 export const serviceCatalog = [
   {
     slug: "website-development",
-    title: "Website Development",
+    title: "Web Design & Development",
     shortDescription:
       "High-performance websites built to turn your brand presence into measurable growth.",
     description:
@@ -30,6 +30,40 @@ export const serviceCatalog = [
       "A clearer digital brand experience",
       "Performance-focused user journeys",
       "A foundation built for future growth",
+    ],
+    relatedSlugs: ["brand-promotion", "strategy-management"],
+    isMainService: true,
+  },
+  {
+    slug: "performance-marketing",
+    title: "Performance Marketing",
+    shortDescription:
+      "ROI-focused ad campaigns that drive qualified leads and real business growth.",
+    description:
+      "We build and optimize performance campaigns that connect the right audiences with measurable business growth.",
+    icon: BarChart3,
+    colorClass: "icon-orange",
+    outcomes: [
+      "A measurable acquisition strategy",
+      "Campaigns optimized around qualified demand",
+      "Clear reporting tied to business outcomes",
+    ],
+    relatedSlugs: ["meta-ads-campaigns", "google-ads-campaigns"],
+    isMainService: true,
+  },
+  {
+    slug: "social-media-handling",
+    title: "Social Media Handling",
+    shortDescription:
+      "Consistent content, strategy and growth management to build your brand online.",
+    description:
+      "We manage your social presence with consistent content, thoughtful community engagement, and a strategy built for sustainable growth.",
+    icon: Megaphone,
+    colorClass: "icon-pink",
+    outcomes: [
+      "A consistent social content system",
+      "Stronger audience engagement",
+      "A clearer and more recognizable brand presence",
     ],
     relatedSlugs: ["brand-promotion", "strategy-management"],
     isMainService: true,

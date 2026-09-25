@@ -134,7 +134,17 @@ const Footer = () => {
           <ul className="kinetic-links">
             <li>
               <Link to="/services/website-development">
-                Website Development
+                Web Design &amp; Development
+              </Link>
+            </li>
+            <li>
+              <Link to="/services/performance-marketing">
+                Performance Marketing
+              </Link>
+            </li>
+            <li>
+              <Link to="/services/social-media-handling">
+                Social Media Handling
               </Link>
             </li>
             <li>

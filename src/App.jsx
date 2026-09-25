@@ -14,13 +14,13 @@ const Home = () => (
   <>
     <SiteMeta />
     <HeaderAndHero />
-    <AboutAndFounders />
     <OurServices />
     <StatsBanner />
     <RecentProjects />
+    <AboutAndFounders />
     <Footer />
   </>
-); // <--- THIS WAS MISSING IN YOUR FILE
+); //
 
 function App() {
   return (

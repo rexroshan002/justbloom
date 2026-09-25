@@ -231,19 +231,6 @@ const HeaderAndHero = () => {
             <li>
               <Link
                 activeClass="active"
-                to="about"
-                spy
-                smooth
-                offset={-100}
-                duration={200}
-                onClick={closeMenu}
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="active"
                 to="services"
                 spy
                 smooth
@@ -265,6 +252,19 @@ const HeaderAndHero = () => {
                 onClick={closeMenu}
               >
                 Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                activeClass="active"
+                to="about"
+                spy
+                smooth
+                offset={-100}
+                duration={200}
+                onClick={closeMenu}
+              >
+                About Us
               </Link>
             </li>
             <li>
@@ -314,8 +314,8 @@ const HeaderAndHero = () => {
         {/* Left Column: Text & Buttons */}
         <div className="hero-content">
           <div className="tagline-badge premium-glow">
-            <span className="star-icon">✦</span> Digital Marketing That Delivers
-            Results
+            <span className="star-icon">✦</span> Built to Perform. Designed to
+            Convert
           </div>
           <h1 className="hero-title">
             We Grow Brands.

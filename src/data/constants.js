@@ -14,10 +14,24 @@ import {
 
 export const servicesData = [
   {
-    title: "Website Development",
+    title: "Web Design & Development",
     desc: "High-performance websites built to turn your brand presence into measurable growth.",
     icon: Code2,
     colorClass: "icon-blue",
+    isMainService: true,
+  },
+  {
+    title: "Performance Marketing",
+    desc: "ROI-focused ad campaigns that drive qualified leads and real business growth.",
+    icon: BarChart3,
+    colorClass: "icon-orange",
+    isMainService: true,
+  },
+  {
+    title: "Social Media Handling",
+    desc: "Consistent content, strategy and growth management to build your brand online.",
+    icon: Megaphone,
+    colorClass: "icon-pink",
     isMainService: true,
   },
   {
@@ -99,14 +113,14 @@ export const projectsData = [
     desc: "App design & marketing rollout for iOS & Android.",
     badge: "UI/UX & Ads",
     image:
-      "https://images.unsplash.com/photo-1526506190308-f7227dd15fa6?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=450&fit=crop&auto=format",
   },
   {
     title: "Viral Social Growth",
     desc: "Instagram reels and TikTok marketing for a restaurant.",
     badge: "Social Media",
     image:
-      "https://images.unsplash.com/photo-1414235077428-33898ed1e830?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=450&fit=crop&auto=format",
   },
   {
     title: "Automotive Commercial",
