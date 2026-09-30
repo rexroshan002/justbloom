@@ -157,11 +157,9 @@ Cloudflare Pages project separately builds the Pages Function.
 
 ### Enabling live Resend delivery
 
-The Resend API key in the local ignored `.env` file is valid. To avoid blocking
-delivery on DNS propagation, the Pages Function currently sends from the
-already verified `bardapureproduction.com` domain and sets the lead's email as
-`Reply-To`. This allows messages to reach `justbloom.team@gmail.com` before
-JustBloom's own sender domain is verified.
+The Pages Function sends from `hello@justbloom.com.co` and sets the lead's
+email as `Reply-To`. Resend must verify `justbloom.com.co` before it can deliver
+messages from this address.
 
 1. In Cloudflare, open **Workers & Pages → justbloom → Settings → Variables
    and Secrets**. Under **Production**, add `RESEND_API_KEY` as an encrypted
@@ -179,12 +177,11 @@ JustBloom's own sender domain is verified.
    `justbloom.team@gmail.com`. A success response is returned only when Resend
    accepts the send; failures are shown on the form instead.
 
-To switch to the branded `hello@justbloom.com.co` sender later, add the four
-Resend DNS records below in Cloudflare (**Websites → justbloom.com.co → DNS →
-Records**). Set TTL to **Auto** and leave them **DNS only** (not proxied),
-then click **Verify DNS Records** in Resend and wait for **Verified** status.
-Only after verification, change the `from` address in
-`functions/api/submit.js` to `hello@justbloom.com.co` and redeploy.
+Add the four Resend DNS records below in Cloudflare (**Websites →
+justbloom.com.co → DNS → Records**). Set TTL to **Auto** and leave them
+**DNS only** (not proxied), then click **Verify DNS Records** in Resend and
+wait for **Verified** status. Until Resend verifies the domain, submissions
+will return an error rather than report a false success.
 
    | Type | Name | Target / content | Priority |
    | --- | --- | --- | --- |

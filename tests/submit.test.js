@@ -37,7 +37,7 @@ test("sends a validated submission to the team and sets the lead as reply-to", a
   const response = await postSubmission();
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { success: true });
-  assert.equal(sentEmail.from, "Just Bloom Website <hello@bardapureproduction.com>");
+  assert.equal(sentEmail.from, "Just Bloom Website <hello@justbloom.com.co>");
   assert.deepEqual(sentEmail.to, ["justbloom.team@gmail.com"]);
   assert.equal(sentEmail.reply_to, validSubmission.email);
   assert.match(sentEmail.text, /Phone: \+91 9876543210/);

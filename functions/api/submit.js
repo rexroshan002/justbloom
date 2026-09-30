@@ -129,7 +129,7 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Just Bloom Website <hello@bardapureproduction.com>",
+        from: "Just Bloom Website <hello@justbloom.com.co>",
         to: ["justbloom.team@gmail.com"],
         reply_to: email,
         subject: `New website lead from ${name}`,
