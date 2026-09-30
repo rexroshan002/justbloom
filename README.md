@@ -41,7 +41,7 @@
 - **Frontend Library:** [React 19](https://react.dev/)
 - **Build Tool / Bundler:** [Vite 8](https://vitejs.dev/)
 - **Icons:** [Lucide React](https://lucide.dev/)
-- **Smooth Scroll:** [React Scroll](https://github.com/fabe/react-scroll)
+- **Smooth Scroll:** [React Scroll](https://github.com/fisshy/react-scroll)
 - **Styling:** Custom CSS with responsive breakpoints and glassmorphism styling
 - **Linting:** ESLint 10
 

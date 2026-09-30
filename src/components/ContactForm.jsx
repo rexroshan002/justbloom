@@ -75,7 +75,7 @@ const ContactForm = () => {
             style={{
               color: "rgba(255, 255, 255, 0.7)",
               marginBottom: "32px",
-              lineHeight: "1.6",
+              lineHeight: "1.6",",
             }}
           >
             Your message has been securely delivered to our team. Our team will
