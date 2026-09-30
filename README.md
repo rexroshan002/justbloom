@@ -158,8 +158,7 @@ Cloudflare Pages project separately builds the Pages Function.
 ### Enabling live Resend delivery
 
 The Pages Function sends from `hello@justbloom.com.co` and sets the lead's
-email as `Reply-To`. Resend must verify `justbloom.com.co` before it can deliver
-messages from this address.
+email as `Reply-To`. Resend has verified `justbloom.com.co` for sending.
 
 1. In Cloudflare, open **Workers & Pages → justbloom → Settings → Variables
    and Secrets**. Under **Production**, add `RESEND_API_KEY` as an encrypted
@@ -177,22 +176,20 @@ messages from this address.
    `justbloom.team@gmail.com`. A success response is returned only when Resend
    accepts the send; failures are shown on the form instead.
 
-Add the four Resend DNS records below in Cloudflare (**Websites →
-justbloom.com.co → DNS → Records**). Set TTL to **Auto** and leave them
-**DNS only** (not proxied), then click **Verify DNS Records** in Resend and
-wait for **Verified** status. Until Resend verifies the domain, submissions
-will return an error rather than report a false success.
+The verified Resend setup currently uses these DNS records in Cloudflare
+(**Websites → justbloom.com.co → DNS → Records**). Keep the Resend records
+**DNS only** (not proxied) and use **Auto** TTL. The exact values below are
+verified in Resend:
 
-   | Type | Name | Target / content | Priority |
+   | Type | Name | Target / content | TTL |
    | --- | --- | --- | --- |
-   | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC35CqAmWfk7ydkuI/OuAGB9MQEv7+BS7q19hB+M+aqz9nVSoNxzrcseZ5SHQLT4yXVozE+zMcRy+0N/0p0tbdXWwhz4ftDAdmaiOJGr8/pSHUHRuEGK3pWh+o0XxKEiwM5KHLL9od7icUCRvC3pP4m8JSVq9EZld972ljToVCoRQIDAQAB` | — |
-   | MX | `send` | `feedback-smtp.us-east-1.amazonses.com` | `10` |
-   | TXT | `send` | `v=spf1 include:amazonses.com ~all` | — |
-   | CNAME | `rsend` | `send.forge.rmta.net` | — |
+   | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC35CqAmWfk7ydkuI/OuAGB9MQEv7+BS7q19hB+M+aqz9nVSoNxzrcseZ5SHQLT4yXVozE+zMcRy+0N/0p0tbdXWwhz4ftDAdmaiOJGr8/pSHUHRuEGK3pWh+o0XxKEiwM5KHLL9od7icUCRvC3pP4m8JSVq9EZld972ljToVCoRQIDAQAB` | Auto |
+   | CNAME | `send` | `send.forge.rmta.net` | Auto |
+   | CNAME | `rsend` | `rsend.forge.rmta.net` | Auto |
 
-   These records were generated for this Resend account. Do not replace
-   existing root-domain mail records; the records use the `send` subdomain
-   except for the DKIM selector.
+Do not add an MX or SPF TXT record at `send` alongside the verified `send`
+CNAME; a CNAME cannot coexist with other record types at the same name. The
+separate receiving MX record is not enabled for this Resend domain.
 
 ---
 
