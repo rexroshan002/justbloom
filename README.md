@@ -25,6 +25,8 @@
 
 - **Contact & Footer (`Footer`):**
   - Contact form integration, quick navigation links, social media handles, and footer details.
+- **Contact Form Delivery:**
+  - Contact requests are validated by a Cloudflare Pages Function and delivered through Resend to `justbloom.team@gmail.com`.
 
 - **Error Boundary Guard (`ErrorBoundary`):**
   - React error boundary component providing reliable runtime fallback UI.
@@ -108,6 +110,7 @@ In the project directory, you can run:
 - `npm run build`: Builds the app for production to the `dist` folder.
 - `npm run preview`: Locally previews the production build.
 - `npm run lint`: Runs ESLint to check for code quality and syntax issues.
+- `npm test`: Runs the contact API endpoint tests.
 
 ## ✅ Validation
 
@@ -116,6 +119,7 @@ Before publishing changes, run the production build and lint checks:
 ```bash
 npm run build
 npm run lint
+npm test
 ```
 
 The project is configured for deployment to GitHub Pages through the
@@ -123,9 +127,75 @@ The project is configured for deployment to GitHub Pages through the
 **Pages → Build and deployment → Source** to **GitHub Actions**. Each push to
 `main` then builds and publishes the site automatically.
 
+### Contact form deployment
+
+The contact form posts JSON to `/api/submit`, implemented by
+`functions/api/submit.js`. Cloudflare Pages runs that function; the GitHub
+Pages workflow only publishes the static frontend. The Cloudflare Pages project
+`justbloom` is connected to this repository, so merging a change to its
+production branch triggers a Pages deployment.
+
+### Publishing the contact form fix
+
+From the repository root, run the checks and push the code on a branch:
+
 ```bash
+npm ci
+npm test
+npm run lint
 npm run build
+git add README.md eslint.config.js package.json src/components/ContactForm.jsx functions/api/submit.js tests/submit.test.js
+git commit -m "Fix contact form email delivery"
+git push -u origin agents/cloudflare-resend-form-fix
 ```
+
+Then open a pull request on GitHub from `agents/cloudflare-resend-form-fix`
+into `main`, review it, and merge it. `.env` is git-ignored: do not force-add
+it, paste its contents into GitHub, or expose the key through a `VITE_` value.
+The repository's GitHub Actions workflow deploys the static site; the connected
+Cloudflare Pages project separately builds the Pages Function.
+
+### Enabling live Resend delivery
+
+The Resend API key in the local ignored `.env` file is valid. To avoid blocking
+delivery on DNS propagation, the Pages Function currently sends from the
+already verified `bardapureproduction.com` domain and sets the lead's email as
+`Reply-To`. This allows messages to reach `justbloom.team@gmail.com` before
+JustBloom's own sender domain is verified.
+
+1. In Cloudflare, open **Workers & Pages → justbloom → Settings → Variables
+   and Secrets**. Under **Production**, add `RESEND_API_KEY` as an encrypted
+   secret using the existing key from the ignored local `.env` file. Never
+   paste it into a repository file or commit it. Add a Preview secret too only
+   if previews should send actual emails.
+2. Verify the Pages build settings are root directory `/`, build command
+   `npm run build`, and output directory `dist`. Confirm the custom domain
+   `justbloom.com.co` is attached to this Pages project, then redeploy the
+   latest production deployment after the secret is saved.
+3. Push and merge the code changes into the GitHub repository's production
+   branch. Cloudflare Pages is connected to this repository and deploys it.
+4. Submit a real test through `https://justbloom.com.co/contact`. Confirm the
+   browser shows the success screen and the email arrives at
+   `justbloom.team@gmail.com`. A success response is returned only when Resend
+   accepts the send; failures are shown on the form instead.
+
+To switch to the branded `hello@justbloom.com.co` sender later, add the four
+Resend DNS records below in Cloudflare (**Websites → justbloom.com.co → DNS →
+Records**). Set TTL to **Auto** and leave them **DNS only** (not proxied),
+then click **Verify DNS Records** in Resend and wait for **Verified** status.
+Only after verification, change the `from` address in
+`functions/api/submit.js` to `hello@justbloom.com.co` and redeploy.
+
+   | Type | Name | Target / content | Priority |
+   | --- | --- | --- | --- |
+   | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC35CqAmWfk7ydkuI/OuAGB9MQEv7+BS7q19hB+M+aqz9nVSoNxzrcseZ5SHQLT4yXVozE+zMcRy+0N/0p0tbdXWwhz4ftDAdmaiOJGr8/pSHUHRuEGK3pWh+o0XxKEiwM5KHLL9od7icUCRvC3pP4m8JSVq9EZld972ljToVCoRQIDAQAB` | — |
+   | MX | `send` | `feedback-smtp.us-east-1.amazonses.com` | `10` |
+   | TXT | `send` | `v=spf1 include:amazonses.com ~all` | — |
+   | CNAME | `rsend` | `send.forge.rmta.net` | — |
+
+   These records were generated for this Resend account. Do not replace
+   existing root-domain mail records; the records use the `send` subdomain
+   except for the DKIM selector.
 
 ---
 

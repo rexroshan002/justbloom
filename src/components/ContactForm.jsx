@@ -25,31 +25,30 @@ const ContactForm = () => {
     };
   }, []);
 
-  // This function intercepts the submit button and sends data silently
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Stops the page from redirecting
+    e.preventDefault();
     setIsLoading(true);
     setSubmitError("");
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
+    const payload = Object.fromEntries(formData.entries());
 
     try {
-      // Notice the /ajax/ added to the URL! This tells FormSubmit to stay quiet.
-      const response = await fetch(
-        "https://formsubmit.co/ajax/justbloom.team@gmail.com",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        },
-      );
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => null);
 
-      if (response.ok) {
-        setIsSubmitted(true); // Triggers the success screen
+      if (response.ok && result?.success === true) {
+        setIsSubmitted(true);
       } else {
-        setSubmitError("We couldn't send your message. Please review your details and try again.");
+        setSubmitError(
+          typeof result?.error === "string"
+            ? result.error
+            : "We couldn't send your message. Please review your details and try again.",
+        );
       }
     } catch (error) {
       console.error(error);
@@ -104,15 +103,7 @@ const ContactForm = () => {
       <h2>Build what’s next.</h2>
       <p className="form-intro">Tell us where you want to go. We’ll come back with a clear next step.</p>
 
-        {/* We removed action/method and added onSubmit */}
         <form onSubmit={handleSubmit}>
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Subspace Transmission (Contact Form)"
-          />
-          {/* _next is no longer needed because we handle the UI entirely in React */}
-
           <div className="input-group">
             <label htmlFor="contact-name">Your name</label>
             <input
