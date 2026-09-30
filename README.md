@@ -155,6 +155,11 @@ it, paste its contents into GitHub, or expose the key through a `VITE_` value.
 The repository's GitHub Actions workflow deploys the static site; the connected
 Cloudflare Pages project separately builds the Pages Function.
 
+Push feature-branch changes to let Cloudflare's Git integration build and
+validate a Pages preview, including the `functions/` directory. `wrangler
+pages deploy` is a direct upload and does not reproduce that Git-triggered
+build or its pull-request check.
+
 ### Enabling live Resend delivery
 
 The Pages Function sends from `hello@justbloom.com.co` and sets the lead's
