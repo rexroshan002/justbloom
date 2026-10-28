@@ -342,12 +342,25 @@ const ClientReviews = () => {
   const [form, setForm] = useState(initialForm);
 
   const fetchReviews = useCallback(async () => {
-  try {
-    const { data, error } = await supabase.from("reviews").select("*").eq("approved", true).order("created_at", { ascending: false }).limit(6);
-    if (error) throw error;
-    return data?.length ? data : FALLBACK_REVIEWS;
-  } catch { return FALLBACK_REVIEWS; }
-}, []);
+    if (!supabase) {
+      console.error("Client reviews are unavailable: Supabase environment variables are not configured.");
+      return FALLBACK_REVIEWS;
+    }
+
+    try {
+      const { data, error } = await supabase
+        .from("reviews")
+        .select("*")
+        .eq("approved", true)
+        .order("created_at", { ascending: false })
+        .limit(6);
+      if (error) throw error;
+      return data?.length ? data : FALLBACK_REVIEWS;
+    } catch (fetchError) {
+      console.error("Could not fetch client reviews:", fetchError);
+      return FALLBACK_REVIEWS;
+    }
+  }, []);
 
     useEffect(() => {
     let isMounted = true;
@@ -364,6 +377,8 @@ const ClientReviews = () => {
   }, [fetchReviews]);
 
   useEffect(() => {
+    if (!supabase) return undefined;
+
     const channel = supabase
       .channel("reviews-live")
       .on(
@@ -401,6 +416,11 @@ const ClientReviews = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!supabase) {
+      setError("Review submissions are temporarily unavailable. Please try again later.");
+      return;
+    }
+
     setIsSubmitting(true);
     setError("");
     setNotice("");
@@ -552,8 +572,8 @@ const ClientReviews = () => {
         <div className="client-reviews__form-card">
           <h3 className="client-reviews__form-heading">Share your experience</h3>
           <p className="client-reviews__form-copy">
-            We value your feedback. Submitted reviews are published once
-            approved.
+            We value your feedback. Reviews are published right away after
+            submission.
           </p>
           <form className="client-reviews__form" onSubmit={handleSubmit}>
             <label className="client-reviews__field" htmlFor="review-name">
@@ -636,7 +656,7 @@ const ClientReviews = () => {
               <button
                 className="client-reviews__submit"
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !supabase}
               >
                 {isSubmitting ? (
                   <>

@@ -13,7 +13,7 @@ const clientReviewsPath = resolve(
   root,
   "src/components/ClientReviews.jsx",
 );
-const expectedSupabaseUrl = "https://lgznrajdgibwfmioiej.supabase.co";
+const expectedSupabaseUrl = "https://lgznrajdgibwfimioejl.supabase.co";
 const edgeFunctionUrl = `${expectedSupabaseUrl}/functions/v1/reviews-email`;
 
 const readDotEnv = () => {
@@ -79,7 +79,7 @@ const withFix = async (fix, operation) => {
 
 test("1. .env contains the Supabase URL and anon key", async () =>
   withFix(
-    "Add VITE_SUPABASE_URL=https://lgznrajdgibwfmioiej.supabase.co and VITE_SUPABASE_ANON_KEY=<your Supabase anon key> to the repository-root .env file. Never use a service-role key in the browser.",
+    "Add VITE_SUPABASE_URL=https://lgznrajdgibwfimioejl.supabase.co and VITE_SUPABASE_ANON_KEY=<your Supabase anon key> to the repository-root .env file. Never use a service-role key in the browser.",
     () => {
       assert.equal(supabaseUrl, expectedSupabaseUrl);
       assert.ok(anonKey, "The anon key is empty or missing.");
@@ -87,6 +87,11 @@ test("1. .env contains the Supabase URL and anon key", async () =>
       if (anonKey.startsWith("eyJ")) {
         const claims = JSON.parse(
           Buffer.from(anonKey.split(".")[1], "base64url").toString("utf8"),
+        );
+        assert.equal(
+          claims.ref,
+          new URL(supabaseUrl).hostname.split(".")[0],
+          "Configured anon key belongs to a different Supabase project.",
         );
         assert.equal(
           claims.role,

@@ -93,12 +93,19 @@ Ensure you have **Node.js** (v18 or higher recommended) and **npm** installed on
    npm install
    ```
 
-3. **Start the development server:**
+3. **Configure environment variables:** Copy `.env.example` to `.env` and
+   replace the placeholders. The frontend requires `VITE_SUPABASE_URL` and
+   `VITE_SUPABASE_ANON_KEY`; use only the public anon key, never a service-role
+   key. In Cloudflare Pages, configure both as build variables for Production
+   and Preview. `RESEND_API_KEY` is a separate encrypted secret for Pages
+   Functions that send email.
+
+4. **Start the development server:**
    ```bash
    npm run dev
    ```
 
-4. Open your browser and navigate to `http://localhost:5173` (or the URL output in your terminal).
+5. Open your browser and navigate to `http://localhost:5173` (or the URL output in your terminal).
 
 ---
 
