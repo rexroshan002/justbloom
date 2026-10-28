@@ -1,5 +1,5 @@
-import { Link } from "react-scroll";
-import { useNavigate } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { ArrowRight, Send, Mail, Phone, MapPin } from "lucide-react";
 import "./Footer.css";
 import logo from "../assets/logo.webp";
@@ -80,6 +80,10 @@ const Footer = () => {
             <img
               src={logo}
               alt="JustBloom Logo"
+              width="32"
+              height="32"
+              loading="lazy"
+              decoding="async"
               style={{ width: "32px", height: "32px" }}
             />
             <div className="footer-logo-text">
@@ -102,29 +106,29 @@ const Footer = () => {
           <h4>Quick Links</h4>
           <ul className="kinetic-links">
             <li>
-              <Link to="about" smooth={true} offset={-100} duration={500}>
+              <ScrollLink to="about" smooth={true} offset={-100} duration={500}>
                 About Us
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <ScrollLink to="services" smooth={true} offset={-100} duration={500}>
                 Services
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link to="portfolio" smooth={true} offset={-100} duration={500}>
+              <ScrollLink to="portfolio" smooth={true} offset={-100} duration={500}>
                 Portfolio
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link to="about" smooth={true} offset={-100} duration={500}>
+              <ScrollLink to="about" smooth={true} offset={-100} duration={500}>
                 Why Us
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link to="contact" smooth={true} offset={-100} duration={500}>
+              <ScrollLink to="contact" smooth={true} offset={-100} duration={500}>
                 Contact
-              </Link>
+              </ScrollLink>
             </li>
           </ul>
         </div>
@@ -133,49 +137,49 @@ const Footer = () => {
           <h4>Services</h4>
           <ul className="kinetic-links">
             <li>
-              <Link to="/services/website-development">
+              <RouterLink to="/services/website-development">
                 Web Design &amp; Development
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="/services/performance-marketing">
+              <RouterLink to="/services/performance-marketing">
                 Performance Marketing
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="/services/social-media-handling">
+              <RouterLink to="/services/social-media-handling">
                 Social Media Handling
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <RouterLink to="/services/shooting-production">
                 Shooting & Production
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <RouterLink to="/services/editing-post-production">
                 Editing & Post Production
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <RouterLink to="/services/brand-promotion">
                 Brand Promotion
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <RouterLink to="/services/meta-ads-campaigns">
                 Meta Ads Campaigns
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <RouterLink to="/services/google-ads-campaigns">
                 Google Ads Campaigns
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link to="services" smooth={true} offset={-100} duration={500}>
+              <RouterLink to="/services/strategy-management">
                 Strategy & Management
-              </Link>
+              </RouterLink>
             </li>
           </ul>
         </div>
@@ -195,18 +199,18 @@ const Footer = () => {
 
           <h4 style={{ marginTop: "24px" }}>Follow Us</h4>
           <div className="footer-socials">
-            <a href="#" aria-label="LinkedIn" className="magnetic-social">
+            <span aria-label="LinkedIn profile not configured" className="magnetic-social">
               <SocialIcon type="linkedin" />
-            </a>
-            <a href="#" aria-label="X" className="magnetic-social">
+            </span>
+            <span aria-label="X profile not configured" className="magnetic-social">
               <SocialIcon type="twitter" />
-            </a>
-            <a href="#" aria-label="Instagram" className="magnetic-social">
+            </span>
+            <span aria-label="Instagram profile not configured" className="magnetic-social">
               <SocialIcon type="instagram" />
-            </a>
-            <a href="#" aria-label="YouTube" className="magnetic-social">
+            </span>
+            <span aria-label="YouTube channel not configured" className="magnetic-social">
               <SocialIcon type="youtube" />
-            </a>
+            </span>
           </div>
         </div>
       </div>

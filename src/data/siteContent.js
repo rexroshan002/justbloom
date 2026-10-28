@@ -12,7 +12,7 @@ export const siteConfig = {
   name: "JustBloom",
   description:
     "JustBloom is a full-service digital agency helping ambitious brands grow through creative, media, and measurable strategy.",
-  url: "https://justbloom.agency",
+  url: "https://justbloom.com.co",
   email: "justbloom.team@gmail.com",
 };
 

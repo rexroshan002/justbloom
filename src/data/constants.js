@@ -11,7 +11,8 @@ import {
   Zap,
   TrendingUp,
 } from "lucide-react";
-
+import bardapureImg from '../assets/Bardapure_project.webp';
+import spartanImg from '../assets/Spartan_project.webp';
 export const servicesData = [
   {
     title: "Web Design & Development",
@@ -81,73 +82,99 @@ export const statsData = [
 
 export const projectsData = [
   {
+    id: "bardapure-productions",
+    title: "Bardapure Productions",
+    category: "Branding & Website",
+    client: "Bardapure Productions",
+    description:
+      "Complete brand identity and cinematic website for a film production house. Portfolio showcase and video storytelling.",
+    image:
+      bardapureImg,
+    link: "https://bardapureproduction.com/",
+    tags: ["Featured", "Branding", "Web Dev", "Video"],
+    year: "2026",
+  },
+  {
+    id: "spartan-security",
+    title: "Spartan Security Solutions",
+    category: "Website & Lead Gen",
+    client: "Spartan Security",
+    description:
+      "Professional security services website with booking and trust-driven B2B design.",
+    image:
+      spartanImg,
+    link: "https://www.spartansecuritysolutions.in/",
+    tags: ["Featured", "Web Design", "B2B"],
+    year: "2026",
+  },
+  {
     title: "Premium Product Shoot",
     desc: "Product shoot for a luxury skincare brand.",
     badge: "Case Study",
     image:
-      "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "E-Commerce Campaign",
     desc: "Facebook & Instagram ads for fashion brand.",
     badge: "Meta Ads",
     image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Lead Generation",
     desc: "Generated quality leads for an education brand.",
     badge: "Google Ads",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Tech Startup Rebrand",
     desc: "Complete visual overhaul for a SaaS company.",
     badge: "Branding",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Fitness App Launch",
     desc: "App design & marketing rollout for iOS & Android.",
     badge: "UI/UX & Ads",
     image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Viral Social Growth",
     desc: "Instagram reels and TikTok marketing for a restaurant.",
     badge: "Social Media",
     image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Automotive Commercial",
     desc: "Cinematic 4K video for a luxury car dealer.",
     badge: "Production",
     image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Real Estate Funnel",
     desc: "Google Ads strategy driving 300% ROI.",
     badge: "PPC Strategy",
     image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Music Festival Promo",
     desc: "Influencer marketing and ticket sales campaign.",
     badge: "Event Marketing",
     image:
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80&auto=format&fit=crop",
   },
   {
     title: "Eco Packaging Design",
     desc: "3D rendering and marketing for sustainable brand.",
     badge: "3D Design",
     image:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=450&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80&auto=format&fit=crop",
   },
 ];

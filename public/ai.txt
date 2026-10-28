@@ -1,0 +1,3 @@
+# Allow AI crawlers
+User-agent: *
+Allow: /

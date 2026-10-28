@@ -61,8 +61,8 @@ const ContactForm = () => {
   // --- SUCCESS SCREEN UI ---
   if (isSubmitted) {
     return (
-      <section id="contact" className="contact-section">
-        <SiteMeta title="Message sent" description="Your JustBloom contact request was sent successfully." />
+      <main id="contact" className="contact-section">
+        <SiteMeta noIndex />
         <div className="contact-glow"></div>
         <div className="form-container" style={{ textAlign: "center" }}>
           <CheckCircle
@@ -70,7 +70,7 @@ const ContactForm = () => {
             color="#00d4ff"
             style={{ margin: "0 auto 24px" }}
           />
-          <h2>Submission Successful</h2>
+          <h1>Submission Successful</h1>
           <p
             style={{
               color: "rgba(255, 255, 255, 0.7)",
@@ -85,13 +85,13 @@ const ContactForm = () => {
             Return to main page <ArrowLeft size={16} />
           </button>
         </div>
-      </section>
+      </main>
     );
   }
   // --- NORMAL FORM UI ---
   return (
-    <section id="contact" className="contact-section">
-      <SiteMeta title="Contact" description="Start a conversation with JustBloom about your next growth milestone." />
+    <main id="contact" className="contact-section">
+      <SiteMeta />
       <div className="contact-glow"></div>
 
       <button className="back-btn" onClick={() => navigate("/")}>
@@ -100,7 +100,7 @@ const ContactForm = () => {
 
       <div className="form-container">
       <div className="form-kicker">Start a conversation</div>
-      <h2>Build what’s next.</h2>
+      <h1>Build what’s next.</h1>
       <p className="form-intro">Tell us where you want to go. We’ll come back with a clear next step.</p>
 
         <form onSubmit={handleSubmit}>
@@ -174,7 +174,7 @@ const ContactForm = () => {
           ></div>
         </div>*/}
       </div>
-    </section>
+    </main>
   );
 };
 

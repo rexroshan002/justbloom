@@ -4,7 +4,7 @@
 
 .footer-section {
   position: relative;
-  background-color: #ffffff;
+  background-color: #f8faff;
   border-top: 1px solid rgba(226, 232, 240, 0.5); /* Ultra-soft division */
   overflow: hidden;
 }
@@ -37,9 +37,7 @@
 
 /* Animated Gradient Mesh CTA */
 .premium-mesh-cta {
-  background: linear-gradient(-45deg, #2563eb, #8b5cf6, #3b82f6, #ec4899);
-  background-size: 300% 300%;
-  animation: meshFlow 8s ease infinite;
+  background: linear-gradient(135deg, #6d28d9 0%, #1d5bff 100%);
   border-radius: 24px;
   padding: 40px 32px;
   display: flex;
@@ -50,18 +48,6 @@
   color: #ffffff;
   box-shadow: 0 24px 48px rgba(59, 130, 246, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-@keyframes meshFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 @media (min-width: 768px) {

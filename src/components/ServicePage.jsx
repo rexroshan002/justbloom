@@ -22,7 +22,7 @@ const ServicePage = () => {
 
   return (
     <main className="service-page">
-      <SiteMeta title={service.title} description={service.description} type="article" service={service} />
+      <SiteMeta service={service} />
       <div className="service-topbar">
         <Link to="/" className="service-home-link"><Home size={16} /> JustBloom</Link>
         <Link to="/services" className="service-back-link"><ArrowLeft size={16} /> All services</Link>
@@ -88,7 +88,7 @@ export const ServicesIndex = () => {
 
   return (
     <main className="service-page services-index-page">
-      <SiteMeta title="Services" />
+      <SiteMeta />
       <div className="service-topbar">
         <Link to="/" className="service-home-link"><Home size={16} /> JustBloom</Link>
         <Link to="/" className="service-back-link"><ArrowLeft size={16} /> Back home</Link>

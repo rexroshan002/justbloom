@@ -1,0 +1,15 @@
+# JustBloom
+> JustBloom is a full-service digital agency helping ambitious brands grow through creative, media, and measurable strategy.
+
+- [Home](https://justbloom.com.co/): Digital agency landing
+- [Services](https://justbloom.com.co/#/services): Web Design & Development, Performance Marketing, Social Media Handling, Shooting & Production, Editing & Post Production, Brand Promotion, Meta Ads, Google Ads, and Strategy & Management
+- [Contact](https://justbloom.com.co/#/contact): Contact form delivers via Resend to justbloom.team@gmail.com
+- [Projects](https://justbloom.com.co/#portfolio): Bardapure Productions, Spartan Security Solutions + 10 more
+
+## Frequently asked questions
+
+- **What services does JustBloom offer?** Web and marketing services including web development, paid ads, social media, production, editing, and brand promotion.
+- **How long does a website take?** Timelines depend on project scope and are agreed before work begins.
+- **Does JustBloom manage ads?** Yes, Meta and Google campaign planning, launch, and optimization are available.
+- **How is pricing determined?** Pricing depends on the services and scope requested.
+- **How do I contact JustBloom?** Email justbloom.team@gmail.com or use the website contact form.

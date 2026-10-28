@@ -4,6 +4,8 @@ import OurServices from "./components/OurServices";
 import AboutAndFounders from "./components/AboutAndFounders";
 import StatsBanner from "./components/StatsBanner";
 import RecentProjects from "./components/RecentProjects";
+import ClientReviews from "./components/ClientReviews";
+import FAQSection from "./components/FAQSection";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import ServicePage, { ServicesIndex } from "./components/ServicePage";
@@ -17,7 +19,9 @@ const Home = () => (
     <OurServices />
     <StatsBanner />
     <RecentProjects />
+    <ClientReviews />
     <AboutAndFounders />
+    <FAQSection />
     <Footer />
   </>
 ); //

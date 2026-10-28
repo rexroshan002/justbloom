@@ -177,16 +177,16 @@ const HeaderAndHero = () => {
   // Avatar nodes for the new animated group
   const avatarNodes = [
     <div className="avatar premium-shadow">
-      <img src="https://i.pravatar.cc/100?img=22" alt="User 1" />
+      <img src="https://i.pravatar.cc/100?img=22" alt="" width="100" height="100" loading="lazy" decoding="async" />
     </div>,
     <div className="avatar premium-shadow">
-      <img src="https://i.pravatar.cc/100?img=23" alt="User 2" />
+      <img src="https://i.pravatar.cc/100?img=23" alt="" width="100" height="100" loading="lazy" decoding="async" />
     </div>,
     <div className="avatar premium-shadow">
-      <img src="https://i.pravatar.cc/100?img=24" alt="User 3" />
+      <img src="https://i.pravatar.cc/100?img=24" alt="" width="100" height="100" loading="lazy" decoding="async" />
     </div>,
     <div className="avatar premium-shadow">
-      <img src="https://i.pravatar.cc/100?img=25" alt="User 4" />
+      <img src="https://i.pravatar.cc/100?img=25" alt="" width="100" height="100" loading="lazy" decoding="async" />
     </div>,
   ];
 
@@ -200,6 +200,8 @@ const HeaderAndHero = () => {
               <img
                 src={logo}
                 alt="JustBloom Logo"
+                width="32"
+                height="32"
                 style={{ width: "32px", height: "32px" }}
               />
             </div>
@@ -360,20 +362,27 @@ const HeaderAndHero = () => {
         {/* Right Column: Visuals & Floating Cards */}
         <div className="hero-visuals">
           <TiltWrapper>
-            <img
-              src={heroImg}
-              alt="Hero Visual - Digital Marketing and Ads Performance"
-              style={{
-                width: "100%",
-                maxWidth: "500px",
-                borderRadius: "24px",
-                transform: "translateZ(20px)",
-                boxShadow: "0 24px 64px rgba(0,0,0,0.1)",
-              }}
-            />
+            <div className="hero-image-wrapper">
+              <img
+                src={heroImg}
+                alt="JustBloom digital marketing creative and campaign performance visual"
+                width="2420"
+                height="1728"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                style={{
+                  width: "100%",
+                  maxWidth: "500px",
+                  borderRadius: "24px",
+                  transform: "translateZ(20px)",
+                  background: "transparent",
+                }}
+              />
+            </div>
 
             {/* Frosted Glass Floating Cards */}
-            <div className="float-card card-meta frosted-glass">
+            <div className="float-card floating-card card-meta frosted-glass">
               <div className="card-header">
                 <span className="card-title">Meta Ads</span>
                 <span className="icon-infinity">∞</span>
@@ -382,7 +391,7 @@ const HeaderAndHero = () => {
               <div className="card-label">People Reached</div>
             </div>
 
-            <div className="float-card card-google frosted-glass">
+            <div className="float-card floating-card card-google frosted-glass">
               <div className="card-header">
                 <span className="card-title">Google Ads</span>
                 <span className="icon-g">G</span>
@@ -391,7 +400,7 @@ const HeaderAndHero = () => {
               <div className="card-label">Conversions</div>
             </div>
 
-            <div className="float-card card-growth frosted-glass">
+            <div className="float-card floating-card card-growth frosted-glass">
               <div className="card-header">
                 <span className="card-title">Growth</span>
                 <TrendingUp size={16} className="icon-trend" />

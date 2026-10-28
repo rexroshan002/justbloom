@@ -13,17 +13,21 @@ const RecentProjects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const itemsPerPage = 3;
 
-  const top10Projects = projectsData.slice(0, 10);
   const filters = useMemo(
-    () => ["All", ...new Set(top10Projects.map((project) => project.badge))],
-    [top10Projects],
+    () => [
+      "All",
+      ...new Set(projectsData.map((project) => project.category || project.badge)),
+    ],
+    [],
   );
   const filteredProjects = useMemo(
     () =>
       activeFilter === "All"
-        ? top10Projects
-        : top10Projects.filter((project) => project.badge === activeFilter),
-    [activeFilter, top10Projects],
+        ? projectsData
+        : projectsData.filter(
+            (project) => (project.category || project.badge) === activeFilter,
+          ),
+    [activeFilter],
   );
 
   useEffect(() => {
@@ -140,7 +144,7 @@ const RecentProjects = () => {
       <div className="projects-grid">
         {displayedProjects.map((project, index) => (
           <div
-            key={`${project.title}-${index}`}
+            key={project.id || `${project.title}-${index}`}
             className="project-card editorial-card animate-stagger"
             style={{
               animationDelay: `${index * 0.05}s`,
@@ -151,8 +155,10 @@ const RecentProjects = () => {
                 src={project.image}
                 alt={project.title}
                 className="project-image"
-                loading={index < 3 ? "eager" : "lazy"}
+                loading="lazy"
                 decoding="async"
+                width="800"
+                height="1000"
                 onError={(event) => {
                   if (event.currentTarget.src !== fallbackProjectImage) {
                     event.currentTarget.src = fallbackProjectImage;
@@ -162,12 +168,15 @@ const RecentProjects = () => {
               <div className="project-overlay"></div>
             </div>
 
-            <div className="project-badge ethereal-badge">{project.badge}</div>
+            <div className="project-badge ethereal-badge">
+              {project.tags?.includes("Featured") && "Featured · "}
+              {project.category || project.badge}
+            </div>
 
             <div className="project-info">
               <div className="info-content">
                 <h4>{project.title}</h4>
-                <p>{project.desc}</p>
+                <p>{project.description || project.desc}</p>
                 <button
                   className="project-link"
                   type="button"
@@ -206,6 +215,10 @@ const RecentProjects = () => {
             <img
               src={selectedProject.image}
               alt=""
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="1000"
               onError={(event) => {
                 if (event.currentTarget.src !== fallbackProjectImage) {
                   event.currentTarget.src = fallbackProjectImage;
@@ -213,14 +226,36 @@ const RecentProjects = () => {
               }}
             />
             <div className="project-modal-content">
-              <span className="modal-kicker">{selectedProject.badge}</span>
+              <span className="modal-kicker">
+                {selectedProject.category || selectedProject.badge}
+              </span>
               <h3 id="project-modal-title">{selectedProject.title}</h3>
-              <p>{selectedProject.desc}</p>
-              <div className="modal-result">
-                <strong>Campaign focus</strong>
-                <span>Strategy, creative execution and measurable growth.</span>
-              </div>
-              <button className="premium-ghost-btn" type="button" onClick={() => setSelectedProject(null)}>
+              <p>{selectedProject.description || selectedProject.desc}</p>
+              {selectedProject.client && (
+                <div className="modal-result">
+                  <strong>Client</strong>
+                  <span>{selectedProject.client}</span>
+                  {selectedProject.year && <span>{selectedProject.year}</span>}
+                </div>
+              )}
+              {selectedProject.tags?.length > 0 && (
+                <p>{selectedProject.tags.join(" · ")}</p>
+              )}
+              {selectedProject.link && selectedProject.link !== "#" && (
+                <a
+                  className="premium-ghost-btn"
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Visit website <ArrowRight size={16} />
+                </a>
+              )}
+              <button
+                className="premium-ghost-btn"
+                type="button"
+                onClick={() => setSelectedProject(null)}
+              >
                 Back to projects <ArrowRight size={16} />
               </button>
             </div>
